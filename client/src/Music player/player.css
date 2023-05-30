@@ -1,0 +1,46 @@
+.music-player {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .track-info {
+    margin-bottom: 20px;
+  }
+  
+  .controls {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .play-pause,
+  .next {
+    background-color: #f50;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 20px;
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .play-pause:hover,
+  .next:hover {
+    background-color: #f00;
+  }
+  
+  h2 {
+    font-size: 18px;
+    margin: 0;
+  }
+  
+  .audio-player {
+    display: none; /*Hide the default audio player UI*/
+  }
+  
