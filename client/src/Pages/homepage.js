@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './homepage.css';
 
 const Homepage = () => {
   const [musicList, setMusicList] = useState([]);

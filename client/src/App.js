@@ -8,6 +8,7 @@ function App() {
 
   const [songName, setSongName] = useState('')
   const [songArtist, setSongArtist] = useState('')
+  const [fileData, setFileData] = useState('')
   const [songList, setSongList] = useState([])
 
   useEffect(() => {
@@ -20,6 +21,7 @@ function App() {
     Axios.post('http://localhost:3001/api/insert', {
       songName: songName, 
       songArtist: songArtist,
+      fileData: fileData,
     }).then(() => {
       alert("success");
     })
@@ -28,6 +30,22 @@ function App() {
   const deleteSong = (song) => {
     Axios.delete(`http://localhost:3001/api/delete/${song}`)
   }
+
+  const handleFileUpload = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+      const fileData = e.target.result;
+      // Send the fileData to your backend for storage
+      // You can use an API call (e.g., Fetch API or Axios) to send the data
+      // Make sure to handle the file upload on the backend side as well
+    };
+
+    reader.readAsArrayBuffer(file);
+
+    console.log();
+  };
 
   return (
     <div className="App">
@@ -42,6 +60,10 @@ function App() {
         <input type="text" name="artistName" onChange={(e)=>{
             setSongArtist(e.target.value)
           }}/>
+        <label>Select file:</label>
+        <input type="file" name="file" onChange={(e)=>{
+          handleFileUpload(e)
+        }} />
 
         <button onClick={submitSong}>Submit</button>
 

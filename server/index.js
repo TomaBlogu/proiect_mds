@@ -26,9 +26,10 @@ app.post('/api/insert', (req,res)=>{
 
     const songName = req.body.songName
     const songArtist = req.body.songArtist
+    const fileData = req.body.fileData
 
-    const sqlInsert = "INSERT INTO songs (songName, songArtist) VALUES (?, ?)"
-    db.query(sqlInsert, [songName, songArtist], (err, result) => {
+    const sqlInsert = "INSERT INTO songs (songName, songArtist, fileData) VALUES (?, ?, ?)"
+    db.query(sqlInsert, [songName, songArtist, fileData], (err, result) => {
         console.log(result)
     })
 })
